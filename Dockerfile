@@ -6,6 +6,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . .
+RUN python3 download_models.py
 
 EXPOSE 8000
 
