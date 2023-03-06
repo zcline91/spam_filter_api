@@ -34,7 +34,7 @@ Regardless of the endpoint accessed, the reponse will be a JSON array of the for
 ```jsonc
 [
     {
-        "prediction": <boolean>,
+        "pred": <boolean>,
         "spam_probability": <number>, // optional for text endpoint
         "file": <str>, // only included in archive endpoint
         "subject_head": <str>, // optional, only available from text endpoint

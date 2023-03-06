@@ -38,7 +38,7 @@ def api_predict_text():
                                "of JSON objects with keys 'subject' and "
                                "'body'")
     response_df = pd.DataFrame(
-        {"prediction": TEXT_MODEL.predict(email_df).astype(bool)})
+        {"pred": TEXT_MODEL.predict(email_df).astype(bool)})
     if input.setdefault('return_prob', True):
         response_df['spam_probability'] = \
             TEXT_MODEL.predict_proba(email_df)[:,1]
@@ -61,7 +61,7 @@ def api_predict_file():
         abort(400, description="'file' must be one of the following file "
                                 f"types: {', '.join(ALLOWED_EXTENSIONS)}")
     response_df = pd.DataFrame({
-            "prediction": OBJECT_MODEL.predict([email_obj,]).astype(bool),
+            "pred": OBJECT_MODEL.predict([email_obj,]).astype(bool),
             "spam_probability": OBJECT_MODEL.predict_proba([email_obj,])[:,1]
         })
     return response_df.to_dict(orient='records')
@@ -92,7 +92,7 @@ def api_predict_archive():
     email_obj_series = pd.Series(email_objs)
     response_df = pd.DataFrame({
             "file": email_obj_series.index,
-            "prediction": OBJECT_MODEL.predict(email_obj_series).astype(bool),
+            "pred": OBJECT_MODEL.predict(email_obj_series).astype(bool),
             "spam_probability": OBJECT_MODEL.predict_proba(email_obj_series)[:,1]
         })
     return response_df.to_dict(orient='records')
