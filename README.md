@@ -35,9 +35,10 @@ Regardless of the endpoint accessed, the reponse will be a JSON array of the for
 [
     {
         "prediction": <boolean>,
-        "spam_probability": <number>, // optional
-        "subject_head": <str>, // optional
-        "body_head": <str>, //optional
+        "spam_probability": <number>, // optional for text endpoint
+        "file": <str>, // only included in archive endpoint
+        "subject_head": <str>, // optional, only available from text endpoint
+        "body_head": <str>, //optional, only available from text endpoint
     },
 ]
 ```
