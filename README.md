@@ -1,6 +1,6 @@
 ## Usage
 
-The API site is currently hosted at https://spamfilterapi-kepp3lctya-uc.a.run.app with the following endpoints:
+The API site is currently hosted at https://spamfilter.telcontar.info with the following endpoints:
 
 ### `/api/predict/text`
 
